@@ -16,18 +16,13 @@ internal class SizeImageUrlExtender
         {
             case SizeImage.W533H300:
                 return "w533_and_h300_bestv2";
-                break;
             case SizeImage.W600H900:
                 return "w600_and_h900_bestv2";
-                break;
             case SizeImage.W1280H720:
                 return "w1280_and_h720_bestv2";
-                break;
             case SizeImage.W1920H1080:
                 return "w1920_and_h1080_bestv2";
-                break;
         }
-
         return "";
     }
 }
