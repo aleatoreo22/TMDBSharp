@@ -2,6 +2,6 @@
 
 internal static class Env
 {
-    public const string BASE_URL = "https://api.themoviedb.org/3/";
-    public static string? Token;
+    internal const string BASE_URL = "https://api.themoviedb.org/3/";
+    internal static string? Token;
 }

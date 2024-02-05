@@ -1,9 +1,15 @@
-﻿namespace TMDBSharp.Models.Response;
+﻿using System.Text.Json.Serialization;
+
+namespace TMDBSharp.Models.Response;
 
 public class BelongsToCollection
 {
-    public int? id { get; set; }
-    public string? name { get; set; }
-    public string? poster_path { get; set; }
-    public string? backdrop_path { get; set; }
+    [JsonPropertyName("id")]
+    public int? Id { get; set; }
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+    [JsonPropertyName("poster_path")]
+    public string? PosterPath { get; set; }
+    [JsonPropertyName("backdrop_path")]
+    public string? BackdropPath { get; set; }
 }

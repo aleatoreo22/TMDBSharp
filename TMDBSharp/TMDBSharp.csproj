@@ -11,4 +11,8 @@
       <Folder Include="Service\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="System.Text.JSON" Version="8.0.1" />
+    </ItemGroup>
+
 </Project>

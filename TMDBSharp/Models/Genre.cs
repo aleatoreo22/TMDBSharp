@@ -1,7 +1,11 @@
-﻿namespace TMDBSharp.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace TMDBSharp.Models;
 
 public class Genre
 {
-    public int? id { get; set; }
-    public string? name { get; set; }
+    [JsonPropertyName("id")]
+    public int? Id { get; set; }
+    [JsonPropertyName("id")]
+    public string? Name { get; set; }
 }

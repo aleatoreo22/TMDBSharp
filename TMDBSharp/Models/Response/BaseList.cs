@@ -1,9 +1,15 @@
-﻿namespace TMDBSharp.Models.Response;
+﻿using System.Text.Json.Serialization;
+
+namespace TMDBSharp.Models.Response;
 
 public class BaseList<T>
 {
-    public int page { get; set; }
-    public List<T>? results { get; set; }
-    public int total_pages { get; set; }
-    public int total_results { get; set; }
+    [JsonPropertyName("page")]
+    public int Page { get; set; }
+    [JsonPropertyName("results")]
+    public List<T>? Results { get; set; }
+    [JsonPropertyName("total_pages")]
+    public int TotalPages { get; set; }
+    [JsonPropertyName("total_results")]
+    public int TotalResults { get; set; }
 }
