@@ -24,9 +24,9 @@ dotnet add package TMDBSharp
 
 ###Exemple
 ```bash
-var client = new TMDBSharp.Client({Your TMDB Token});
-var popularMovie = client.GetPopularMovie();
-foreach (var item in popularMovie.Results)
+var client =new TMDBSharp.Client("");
+var popularMovies = client.MovieLists.GetPopular();
+foreach (var item in popularMovies.Results)
 {
     Console.WriteLine(item.Title);
 }

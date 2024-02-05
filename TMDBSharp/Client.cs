@@ -18,22 +18,22 @@ public class Client
         Token = token;
     }
 
-    private Requests.Movie? movie = null;
-    public Requests.Movie Movie
+    private Requests.MovieClient? movie = null;
+    public Requests.MovieClient Movie
     {
         get
         {
-            movie ??= new Requests.Movie();
+            movie ??= new Requests.MovieClient();
             return movie;
         }
     }
 
-    private Requests.MovieLists? movieLists = null;
-    public Requests.MovieLists MovieLists
+    private Requests.MovieListsClient? movieLists = null;
+    public Requests.MovieListsClient MovieLists
     {
         get
         {
-            movieLists ??= new Requests.MovieLists();
+            movieLists ??= new Requests.MovieListsClient();
             return movieLists;
         }
     }

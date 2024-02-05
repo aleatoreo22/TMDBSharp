@@ -1,8 +1,10 @@
+using TMDBSharp.Models;
+
 namespace TMDBSharp.Requests;
 
-public class Movie
+public class MovieClient
 {
-    public Movie? MovieGetDetails(int id, string language = "en-US")
+    public Movie? GetDetails(int id, string language = "en-US")
     {
         var paramters = new Dictionary<string, object?>
         {
