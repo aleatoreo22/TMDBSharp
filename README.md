@@ -6,12 +6,14 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" height="100" alt="C#"  />
 </div>
 
-## ⏲️ Status
--  Get Movies -
-    - [x] By id request.
-    - [x] Popular request.
-    - [x] Now playing request.
-
+# ⏲️ [Status](STATUS.md)
+Movies 🛠️
+People 🔜
+TV Series 🔜
+Trending 🔜
+TV Seasons 🔜
+TV Episodes 🔜
+Watch Providers 🔜
 ## How to use:
 ###Installation
 Visit [nuget.org](https://www.nuget.org/packages/TMDBSharp)

@@ -1,0 +1,89 @@
+# TMDBSharp
+- Movies -
+    - [x] Details.    
+    - [ ] Account Stats.
+    - [ ] Alterantive Titles.
+    - [ ] Changes.
+    - [ ] Credits.
+    - [ ] External IDs.
+    - [ ] Images.
+    - [ ] Keyworkds.
+    - [ ] Latest.
+    - [ ] Lists.
+    - [ ] Recommendations.
+    - [ ] Releases Dates.
+    - [ ] Reviews.
+    - [ ] Similar.
+    - [ ] Translations.
+    - [ ] Videos.
+    - [ ] Watch Providers.
+- Movies Lists -
+    - [X] Now Playins.
+    - [X] Popular.
+    - [ ] Top Rated.
+    - [ ] Upcoming.
+- People -
+    - [ ] Details.
+    - [ ] Changes.
+    - [ ] Combined Credits.
+    - [ ] External IDs.
+    - [ ] Images.
+    - [ ] Latest.
+    - [ ] Movie Credits.
+    - [ ] TV Credits.
+    - [ ] Tagged Images.
+    - [ ] Translations.
+- People Lists -
+    - [ ] Popular.
+- TV Series -
+    - [ ] Details.    
+    - [ ] Account Stats.
+    - [ ] Alterantive Titles.
+    - [ ] Changes.
+    - [ ] Credits.
+    - [ ] External IDs.
+    - [ ] Images.
+    - [ ] Keyworkds.
+    - [ ] Latest.
+    - [ ] Lists.
+    - [ ] Recommendations.
+    - [ ] Releases Dates.
+    - [ ] Reviews.
+    - [ ] Similar.
+    - [ ] Translations.
+    - [ ] Videos.
+    - [ ] Watch Providers.
+- TV Series Lists -
+    - [ ] Airing Today.
+    - [ ] On The Air.
+    - [ ] Popular.
+    - [ ] Top Rated.
+- Trending -
+    - [ ] All.
+    - [ ] Movies.
+    - [ ] People.
+    - [ ] TV.
+- TV Seasons -
+    - [ ] Details.
+    - [ ] Account States.
+    - [ ] Aggergate Credits.
+    - [ ] Changes.
+    - [ ] Credits.
+    - [ ] Extrenal IDs.
+    - [ ] Images.
+    - [ ] Translations.
+    - [ ] Videos.
+    - [ ] Watch Providers.
+- TV Episodes -
+    - [ ] Details.
+    - [ ] Account States.
+    - [ ] Changes.
+    - [ ] Credits.
+    - [ ] External IDs.
+    - [ ] Images.
+    - [ ] Translations.
+    - [ ] Videos.    
+- Watch Providers
+    - [ ] Avaliable Regions.
+    - [ ] Movie Providers.
+    - [ ] TV Providers.
