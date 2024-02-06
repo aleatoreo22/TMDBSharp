@@ -6,7 +6,6 @@
     <LangVersion>default</LangVersion>
     <Version>2.0.0</Version>
     <Authors>aleatoreo22</Authors>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Service\" />

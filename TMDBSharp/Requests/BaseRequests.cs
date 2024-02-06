@@ -8,7 +8,7 @@ namespace TMDBSharp.Requests;
 
 internal static class BaseRequests
 {
-    internal static Dictionary<string, object?> FillBaseParamters(int? page = null, string? language = null, string? sort_by = null, bool? include_adult = null, bool? include_video = null, List<RelaseTypes?>? with_release_type = null)
+    internal static Dictionary<string, object?> FillBaseparameters(int? page = null, string? language = null, string? sort_by = null, bool? include_adult = null, bool? include_video = null, List<RelaseTypes?>? with_release_type = null)
     {
         return new Dictionary<string, object?>
         {
@@ -23,19 +23,19 @@ internal static class BaseRequests
 
     internal static R? Request<R>(string endPoint, HttpMethod method, Dictionary<string, object?>? parameters = null) => Request<object, R>(null, endPoint, method, parameters);
 
-    internal static Dictionary<string, object?>? RemoveNullParamters(Dictionary<string, object?>? paramters)
+    internal static Dictionary<string, object?>? RemoveNullparameters(Dictionary<string, object?>? parameters)
     {
         try
         {
-            if (paramters == null)
+            if (parameters == null)
                 return null;
-            var notNullParamters = new Dictionary<string, object?>();
-            foreach (var item in paramters.Keys)
+            var notNullparameters = new Dictionary<string, object?>();
+            foreach (var item in parameters.Keys)
             {
-                if (paramters[item] != null)
-                    notNullParamters.Add(item, paramters[item]);
+                if (parameters[item] != null)
+                    notNullparameters.Add(item, parameters[item]);
             }
-            return notNullParamters;
+            return notNullparameters;
         }
         catch (Exception)
         {
@@ -46,7 +46,7 @@ internal static class BaseRequests
     internal static R? Request<T, R>(T? model, string endPoint, HttpMethod method,
         Dictionary<string, object?>? parameters = null)
     {
-        parameters = RemoveNullParamters(parameters);
+        parameters = RemoveNullparameters(parameters);
         if (parameters != null && parameters.Count > 0)
             endPoint = parameters.Aggregate(endPoint, (current, item) => current + "?" + item.Key + "=" + item.Value?.ToString());
         var httpRequest = new HttpRequestMessage(method, BASE_URL + endPoint);

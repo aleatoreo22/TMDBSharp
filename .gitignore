@@ -477,4 +477,5 @@ $RECYCLE.BIN/
 *.lnk
 
 .idea/*
-TMDBSharp.Console
+TMDBSharp.Console/
+.vscode

@@ -1,11 +1,11 @@
 # TMDBSharp
 - Movies -
     - [x] Details.    
-    - [ ] Account Stats.
-    - [ ] Alterantive Titles.
-    - [ ] Changes.
-    - [ ] Credits.
-    - [ ] External IDs.
+    - [x] Account Stats.
+    - [x] Alterantive Titles.
+    - [x] Changes.
+    - [x] Credits.
+    - [x] External IDs.
     - [ ] Images.
     - [ ] Keyworkds.
     - [ ] Latest.
