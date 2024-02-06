@@ -6,6 +6,6 @@ public class Genre
 {
     [JsonPropertyName("id")]
     public int? Id { get; set; }
-    [JsonPropertyName("id")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 }

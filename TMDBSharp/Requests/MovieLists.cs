@@ -15,6 +15,8 @@ public class MovieListsClient
     public BaseList<Movie>? GetNowPlaying(int page = 1, string language = "en-US", string? sort_by = null, bool? include_adult = null, bool? include_video = null, List<RelaseTypes?>? with_release_type = null)
     {
         var parameters = BaseRequests.FillBaseparameters(page, language, sort_by, include_adult, include_video, with_release_type);
-        return BaseRequests.Request<BaseList<Movie>>("discover/movie", HttpMethod.Get, parameters);
+        return BaseRequests.Request<BaseList<Movie>?>("discover/movie", HttpMethod.Get, parameters);
     }
 }
+
+

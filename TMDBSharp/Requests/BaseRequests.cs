@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Headers;
+using System.Net.NetworkInformation;
 using System.Text.Json;
 using TMDBSharp.Core.Enum;
 using static TMDBSharp.Core.Env;
@@ -10,15 +11,17 @@ internal static class BaseRequests
 {
     internal static Dictionary<string, object?> FillBaseparameters(int? page = null, string? language = null, string? sort_by = null, bool? include_adult = null, bool? include_video = null, List<RelaseTypes?>? with_release_type = null)
     {
-        return new Dictionary<string, object?>
+        var parameters = new Dictionary<string, object?>
         {
             {"page", page},
             {"language", language},
             {"sort_by", sort_by},
             {"include_video", include_video},
             {"include_adult", include_adult},
-            {"with_release_type", string.Join("|", with_release_type?.Where(x => x != null)?.Select(x => x.GetHashCode()))}
         };
+        if (with_release_type != null && with_release_type.Count > 0)
+            parameters.Add("with_release_type", string.Join("|", with_release_type?.Where(x => x != null)?.Select(x => x.GetHashCode())));
+        return parameters;
     }
 
     internal static R? Request<R>(string endPoint, HttpMethod method, Dictionary<string, object?>? parameters = null) => Request<object, R>(null, endPoint, method, parameters);
