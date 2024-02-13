@@ -6,12 +6,12 @@
     - [x] Changes.
     - [x] Credits.
     - [x] External IDs.
-    - [ ] Images.
-    - [ ] Keyworkds.
-    - [ ] Latest.
-    - [ ] Lists.
-    - [ ] Recommendations.
-    - [ ] Releases Dates.
+    - [x] Images.
+    - [x] Keyworkds.
+    - [x] Latest.
+    - [x] Lists.
+    - [x] Recommendations.
+    - [x] Releases Dates.
     - [ ] Reviews.
     - [ ] Similar.
     - [ ] Translations.

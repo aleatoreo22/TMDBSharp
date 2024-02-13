@@ -12,6 +12,5 @@ namespace TMDBSharp.Models
         public bool? Rated { get; set; }
         [JsonPropertyName("watchlist")]
         public bool? Watchlist { get; set; }
-
     }
 }

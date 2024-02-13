@@ -2,11 +2,11 @@ using System.Text.Json.Serialization;
 
 namespace TMDBSharp.Models
 {
-    public class AlternativeTitles
+    public class Keywords
     {
         [JsonPropertyName("id")]
         public int? Id { get; set; }
-        [JsonPropertyName("titles")]
-        public List<Titles>? Titles { get; set; }
+        [JsonPropertyName("keywords")]
+        public List<Keyword>? Keyword { get; set; }
     }
 }

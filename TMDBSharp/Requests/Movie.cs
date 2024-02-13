@@ -1,4 +1,5 @@
 using TMDBSharp.Models;
+using TMDBSharp.Models.Response;
 
 namespace TMDBSharp.Requests;
 
@@ -55,5 +56,45 @@ public class MovieClient
     public ExternalIds? GetExternalIds(int id)
     {
         return BaseRequests.Request<ExternalIds?>("movie/" + id.ToString() + "/external_ids", HttpMethod.Get);
+    }
+
+    public Images? GetImages(int id)
+    {
+        return BaseRequests.Request<Images>("movie/" + id.ToString() + "/images", HttpMethod.Get);
+    }
+
+    public Keywords? GetKeywords(int id)
+    {
+        return BaseRequests.Request<Keywords>("movie/" + id.ToString() + "/keyword", HttpMethod.Get);
+    }
+
+    public Movie? GetLatest()
+    {
+        return BaseRequests.Request<Movie>("movie/latest", HttpMethod.Get);
+    }
+
+    public BaseListRequest<Lists>? GetLists(int id, int page = 1, string language = "en-US")
+    {
+        var parameters = new Dictionary<string, object?>
+        {
+            {"page", page},
+            {"language",language},
+        };
+        return BaseRequests.Request<BaseListRequest<Lists>>("movie/" + id.ToString() + "/lists", HttpMethod.Get, parameters);
+    }
+
+    public BaseListRequest<Movie>? GetRecomendations(int id, int page = 1, string language = "en-US")
+    {
+        var parameters = new Dictionary<string, object?>
+        {
+            {"page", page},
+            {"language",language},
+        };
+        return BaseRequests.Request<BaseListRequest<Movie>>("movie/" + id.ToString() + "/recommendations", HttpMethod.Get, parameters);
+    }
+
+    public BaseListRequest<ReleaseDates>? GetReleaseDates(int id)
+    {
+        return BaseRequests.Request<BaseListRequest<ReleaseDates>>("movie/" + id.ToString() + "/release_dates", HttpMethod.Get);
     }
 }

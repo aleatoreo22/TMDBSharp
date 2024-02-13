@@ -1,8 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 
 namespace TMDBSharp.Models.Response;
-
-public class BaseList<T>
+public class BaseListRequest<T>
 {
     [JsonPropertyName("page")]
     public int Page { get; set; }
@@ -12,4 +11,6 @@ public class BaseList<T>
     public int TotalPages { get; set; }
     [JsonPropertyName("total_results")]
     public int TotalResults { get; set; }
+    [JsonPropertyName("id")]
+    public int? Id { get; set; }
 }
