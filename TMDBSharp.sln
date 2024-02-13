@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMDBSharp", "TMDBSharp\TMDBSharp.csproj", "{44A4214B-89F7-4A8F-A13C-A23A1B1B280D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMDBSharp.Console", "TMDBSharp.Console\TMDBSharp.Console.csproj", "{3F494B1D-FEAF-45A6-A293-6F4859348537}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,7 +14,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{44A4214B-89F7-4A8F-A13C-A23A1B1B280D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A4214B-89F7-4A8F-A13C-A23A1B1B280D}.Debug|Any CPU.ActiveCfg = Debug|Any CP
 		{44A4214B-89F7-4A8F-A13C-A23A1B1B280D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44A4214B-89F7-4A8F-A13C-A23A1B1B280D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44A4214B-89F7-4A8F-A13C-A23A1B1B280D}.Release|Any CPU.Build.0 = Release|Any CPU
