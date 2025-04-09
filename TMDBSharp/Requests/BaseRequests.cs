@@ -8,6 +8,32 @@ namespace TMDBSharp.Requests;
 
 internal static class BaseRequests
 {
+    internal static async Task<R?> RequestAsync<T, R>(T? model, string endPoint, HttpMethod method,
+        Dictionary<string, object?>? parameters = null)
+    {
+        parameters = RemoveNullparameters(parameters);
+        if (parameters != null && parameters.Count > 0)
+            endPoint = parameters.Aggregate(endPoint, (current, item) => current + "?" + 
+                item.Key + "=" + item.Value?.ToString());
+        var httpRequest = new HttpRequestMessage(method, BASE_URL + endPoint);
+        httpRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+        var response = new HttpResponseMessage();
+
+        if (method == HttpMethod.Get)
+            response = await new HttpClient().SendAsync(httpRequest);
+        try
+        {
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception(response.Content.ToString());
+            return JsonSerializer.Deserialize<R>(response.Content.ReadAsStringAsync().Result.ToString());
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
     internal static Dictionary<string, object?> FillBaseparameters(int? page = null, string? language = null, string? sort_by = null, bool? include_adult = null, bool? include_video = null, List<RelaseTypes?>? with_release_type = null)
     {
         var parameters = new Dictionary<string, object?>
