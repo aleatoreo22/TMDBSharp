@@ -1,8 +1,6 @@
 using System.Net;
 using System.Net.Http.Headers;
-using System.Net.NetworkInformation;
 using System.Text.Json;
-using System.Threading.Tasks;
 using TMDBSharp.Core.Enum;
 using static TMDBSharp.Core.Env;
 

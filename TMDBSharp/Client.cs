@@ -1,13 +1,4 @@
-﻿using System.Collections;
-using System.ComponentModel;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Reflection;
-using System.Text.Json;
-using TMDBSharp.Core.Enum;
-using TMDBSharp.Models;
-using TMDBSharp.Models.Response;
-using static TMDBSharp.Core.Env;
+﻿using static TMDBSharp.Core.Env;
 
 namespace TMDBSharp;
 
