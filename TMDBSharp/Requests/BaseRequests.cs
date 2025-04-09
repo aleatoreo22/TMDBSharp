@@ -2,6 +2,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
 using System.Text.Json;
+using System.Threading.Tasks;
 using TMDBSharp.Core.Enum;
 using static TMDBSharp.Core.Env;
 
@@ -24,7 +25,8 @@ internal static class BaseRequests
         return parameters;
     }
 
-    internal static R? Request<R>(string endPoint, HttpMethod method, Dictionary<string, object?>? parameters = null) => Request<object, R>(null, endPoint, method, parameters);
+    internal static async Task<R?> RequestAsync<R>(string endPoint, HttpMethod method, Dictionary<string, object?>? parameters = null) =>
+    await RequestAsync<object, R>(null, endPoint, method, parameters);
 
     internal static Dictionary<string, object?>? RemoveNullparameters(Dictionary<string, object?>? parameters)
     {
@@ -46,7 +48,7 @@ internal static class BaseRequests
         }
     }
 
-    internal static R? Request<T, R>(T? model, string endPoint, HttpMethod method,
+    internal static async Task<R?> RequestAsync<T, R>(T? model, string endPoint, HttpMethod method,
         Dictionary<string, object?>? parameters = null)
     {
         parameters = RemoveNullparameters(parameters);
@@ -58,7 +60,7 @@ internal static class BaseRequests
 
         if (method == HttpMethod.Get)
         {
-            response = new HttpClient().SendAsync(httpRequest).Result;
+            response = await new HttpClient().SendAsync(httpRequest);
         }
         try
         {
