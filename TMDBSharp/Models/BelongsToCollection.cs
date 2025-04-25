@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TMDBSharp.Models.Response;
+namespace TMDBSharp.Models;
 
 public class BelongsToCollection
 {

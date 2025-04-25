@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using TMDBSharp.Models.Response;
 
 namespace TMDBSharp.Models;
 

@@ -13,10 +13,7 @@ public class MovieClient
     /// <returns></returns>
     public async Task<Movie?> GetDetails(int id, string language = "en-US")
     {
-        var parameters = new Dictionary<string, object?>
-        {
-            {"language", language}
-        };
+        var parameters = BaseRequests.FillBaseparameters(language: language);
         return await BaseRequests.RequestAsync<Movie?>($"movie/{id}", HttpMethod.Get, parameters);
     }
 
@@ -30,11 +27,7 @@ public class MovieClient
     public async Task<AccountStates?> GetAccountStates(int id, string? session_id = null,
         string? guest_session_id = null)
     {
-        var parameters = new Dictionary<string, object?>
-        {
-            {"session_id", session_id},
-            {"guest_session_id", guest_session_id}
-        };
+        var parameters = BaseRequests.FillBaseparameters(session_id: session_id, guest_session_id: guest_session_id);
         return await BaseRequests.RequestAsync<AccountStates?>($"movie/{id}/account_states",
             HttpMethod.Get, parameters);
     }
@@ -43,14 +36,11 @@ public class MovieClient
     /// Get the alternative titles for a movie.
     /// </summary>
     /// <param name="id">Movie Id</param>
-    /// <param name="country"></param>
+    /// <param name="country">specify a ISO-3166-1 value to filter the results</param>
     /// <returns></returns>
     public async Task<AlternativeTitles?> GetAlternativeTitles(int id, string? country = null)
     {
-        var parameters = new Dictionary<string, object?>
-        {
-            {"country", country}
-        };
+        var parameters = BaseRequests.FillBaseparameters(country: country);
         return await BaseRequests.RequestAsync<AlternativeTitles?>($"movie/{id}/alternative_titles",
             HttpMethod.Get, parameters);
     }
@@ -67,21 +57,13 @@ public class MovieClient
     /// <returns></returns>
     public async Task<Changes?> GetChanges(int id, int page = 1, DateTime? end_date = null, DateTime? start_date = null)
     {
-        var parameters = new Dictionary<string, object?>
-        {
-            {"page", page},
-            {"end_date", end_date},
-            {"start_date", start_date},
-        };
+        var parameters = BaseRequests.FillBaseparameters(page: page, end_date: end_date, start_date: start_date);
         return await BaseRequests.RequestAsync<Changes?>($"movie/{id}/changes", HttpMethod.Get, parameters);
     }
 
     public async Task<Credits?> GetCredits(int id, string language = "en-US")
     {
-        var parameters = new Dictionary<string, object?>
-        {
-            {"language", language}
-        };
+        var parameters = BaseRequests.FillBaseparameters(language: language);
         return await BaseRequests.RequestAsync<Credits?>($"movie/{id}/credits", HttpMethod.Get, parameters);
     }
 
@@ -100,10 +82,14 @@ public class MovieClient
     /// This method will return the backdrops, posters and logos that have been added to a movie.
     /// </summary>
     /// <param name="id">Movie Id</param>
+    /// <param name="language"></param>
+    /// <param name="include_image_language">specify a comma separated list of ISO-639-1 values to query, for example: en,null</param>
     /// <returns></returns>
-    public async Task<Images?> GetImages(int id)
+    public async Task<Images?> GetImages(int id, string? language = null, string? include_image_language = null)
     {
-        return await BaseRequests.RequestAsync<Images>($"movie/{id}/images", HttpMethod.Get);
+        var parameters = BaseRequests.FillBaseparameters(language: language,
+            include_image_language: include_image_language);
+        return await BaseRequests.RequestAsync<Images>($"movie/{id}/images", HttpMethod.Get, parameters);
     }
 
     public async Task<Keywords?> GetKeywords(int id)
@@ -130,21 +116,13 @@ public class MovieClient
     /// <returns></returns>
     public async Task<BaseListRequest<Lists>?> GetLists(int id, int page = 1, string language = "en-US")
     {
-        var parameters = new Dictionary<string, object?>
-        {
-            {"page", page},
-            {"language",language},
-        };
+        var parameters = BaseRequests.FillBaseparameters(page: page, language: language);
         return await BaseRequests.RequestAsync<BaseListRequest<Lists>>($"movie/{id}/lists", HttpMethod.Get, parameters);
     }
 
     public async Task<BaseListRequest<Movie>?> GetRecomendations(int id, int page = 1, string language = "en-US")
     {
-        var parameters = new Dictionary<string, object?>
-        {
-            {"page", page},
-            {"language",language},
-        };
+        var parameters = BaseRequests.FillBaseparameters(page: page, language: language);
         return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/recommendations", HttpMethod.Get,
             parameters);
     }
@@ -158,5 +136,64 @@ public class MovieClient
     {
         return await BaseRequests.RequestAsync<BaseListRequest<ReleaseDates>>($"movie/{id}/release_dates",
             HttpMethod.Get);
+    }
+
+    /// <summary>
+    /// Get the user reviews for a movie.
+    /// </summary>
+    /// <param name="id">Movie Id</param>
+    /// <param name="page"></param>
+    /// <param name="language"></param>
+    /// <returns></returns>
+    public async Task<BaseListRequest<Movie>?> GetReviews(int id, int page = 1, string language = "en-US")
+    {
+        var parameters = BaseRequests.FillBaseparameters(page: page, language: language);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/reviews", HttpMethod.Get,
+            parameters);
+    }
+
+    /// <summary>
+    /// Get the similar movies based on genres and keywords.
+    /// This method only looks for other items based on genres and plot keywords. As such, the results found here are not always going to be 💯. Use it with that in mind.
+    /// </summary>
+    /// <param name="id">Movie Id</param>
+    /// <param name="page"></param>
+    /// <param name="language"></param>
+    /// <returns></returns>
+    public async Task<BaseListRequest<Movie>?> GetSimilar(int id, int page = 1, string language = "en-US")
+    {
+        var parameters = BaseRequests.FillBaseparameters(page: page, language: language);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/similar", HttpMethod.Get,
+            parameters);
+    }
+
+    /// <summary>
+    /// Get the translations for a movie.
+    /// </summary>
+    /// <param name="id">Movie Id</param>
+    /// <returns></returns>
+    public async Task<BaseListRequest<Movie>?> GetTranslations(int id)
+    {
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/similar", HttpMethod.Get);
+    }
+
+    public async Task<BaseListRequest<Movie>?> GetVideos(int id, string language = "en-US")
+    {
+        var parameters = BaseRequests.FillBaseparameters(language: language);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/videos", HttpMethod.Get,
+            parameters);
+    }
+
+    /// <summary>
+    /// Get the list of streaming providers we have for a movie.
+    /// Powered by our partnership with JustWatch, you can query this method to get a list of the streaming/rental/purchase availabilities per country by provider.
+    /// This is not going to return full deep links, but rather, it's just enough information to display what's available where.
+    /// You can link to the provided TMDB URL to help support TMDB and provide the actual deep links to the content.
+    /// </summary>
+    /// <param name="id">Movie Id</param>
+    /// <returns></returns>
+    public async Task<BaseListRequest<Movie>?> GetWatchProviders(int id)
+    {
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/similar", HttpMethod.Get);
     }
 }
