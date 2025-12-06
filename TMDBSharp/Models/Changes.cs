@@ -1,10 +1,9 @@
 using System.Text.Json.Serialization;
 
-namespace TMDBSharp.Models
+namespace TMDBSharp.Models;
+
+public class Changes
 {
-    public class Changes
-    {
-        [JsonPropertyName("changes")]
-        public List<Change>? Change { get; set; }
-    }
+    [JsonPropertyName("changes")]
+    public List<Change>? Change { get; set; }
 }

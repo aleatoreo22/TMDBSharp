@@ -1,12 +1,12 @@
 using System.Text.Json.Serialization;
 
-namespace TMDBSharp.Models
+namespace TMDBSharp.Models;
+
+public class Keywords
 {
-    public class Keywords
-    {
-        [JsonPropertyName("id")]
-        public int? Id { get; set; }
-        [JsonPropertyName("keywords")]
-        public List<Keyword>? Keyword { get; set; }
-    }
+    [JsonPropertyName("id")]
+    public int? Id { get; set; }
+
+    [JsonPropertyName("keywords")]
+    public List<Keyword>? Keyword { get; set; }
 }

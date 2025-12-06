@@ -12,32 +12,33 @@
     - [x] Lists.
     - [x] Recommendations.
     - [x] Releases Dates.
-    - [ ] Reviews.
-    - [ ] Similar.
-    - [ ] Translations.
-    - [ ] Videos.
-    - [ ] Watch Providers.
+    - [x] Reviews.
+    - [x] Similar.
+    - [x] Translations.
+    - [x] Videos.
+    - [x] Watch Providers.
 - Movies Lists -
     - [X] Now Playins.
     - [X] Popular.
-    - [ ] Top Rated.
-    - [ ] Upcoming.
+    - [x] Top Rated.
+    - [x] Upcoming.
 - People -
-    - [ ] Details.
-    - [ ] Changes.
-    - [ ] Combined Credits.
-    - [ ] External IDs.
-    - [ ] Images.
-    - [ ] Latest.
-    - [ ] Movie Credits.
-    - [ ] TV Credits.
-    - [ ] Tagged Images.
-    - [ ] Translations.
+    - [x] Details.
+    - [x] Changes.
+    - [x] Combined Credits.
+    - [x] External IDs.
+    - [x] Images.
+    - [x] Latest.
+    - [x] Movie Credits.
+    - [x] TV Credits.
+    - [x] Tagged Images.
+    - [x] Translations.
 - People Lists -
-    - [ ] Popular.
+    - [x] Popular.
 - TV Series -
-    - [ ] Details.    
-    - [ ] Account Stats.
+    - [x] Details.
+    - [x] Account Stats.
+    - [ ] Aggregate Credits.
     - [ ] Alterantive Titles.
     - [ ] Changes.
     - [ ] Credits.

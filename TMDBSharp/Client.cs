@@ -28,4 +28,24 @@ public class Client
             return movieLists;
         }
     }
+
+    private Requests.PeopleClient? people = null;
+    public Requests.PeopleClient People
+    {
+        get
+        {
+            people ??= new Requests.PeopleClient();
+            return people;
+        }
+    }
+
+    private Requests.PeopleListClient? peopleList = null;
+    public Requests.PeopleListClient PeopleList
+    {
+        get
+        {
+            peopleList ??= new Requests.PeopleListClient();
+            return peopleList;
+        }
+    }
 }

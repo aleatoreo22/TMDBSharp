@@ -1,12 +1,12 @@
 using System.Text.Json.Serialization;
 
-namespace TMDBSharp.Models
+namespace TMDBSharp.Models;
+
+public class AlternativeTitles
 {
-    public class AlternativeTitles
-    {
-        [JsonPropertyName("id")]
-        public int? Id { get; set; }
-        [JsonPropertyName("titles")]
-        public List<Titles>? Titles { get; set; }
-    }
+    [JsonPropertyName("id")]
+    public int? Id { get; set; }
+
+    [JsonPropertyName("titles")]
+    public List<Titles>? Titles { get; set; }
 }

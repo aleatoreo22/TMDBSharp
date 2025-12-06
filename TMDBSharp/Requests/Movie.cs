@@ -24,12 +24,21 @@ public class MovieClient
     /// <param name="session_id"></param>
     /// <param name="guest_session_id"></param>
     /// <returns></returns>
-    public async Task<AccountStates?> GetAccountStates(int id, string? session_id = null,
-        string? guest_session_id = null)
+    public async Task<AccountStates?> GetAccountStates(
+        int id,
+        string? session_id = null,
+        string? guest_session_id = null
+    )
     {
-        var parameters = BaseRequests.FillBaseparameters(session_id: session_id, guest_session_id: guest_session_id);
-        return await BaseRequests.RequestAsync<AccountStates?>($"movie/{id}/account_states",
-            HttpMethod.Get, parameters);
+        var parameters = BaseRequests.FillBaseparameters(
+            session_id: session_id,
+            guest_session_id: guest_session_id
+        );
+        return await BaseRequests.RequestAsync<AccountStates?>(
+            $"movie/{id}/account_states",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     /// <summary>
@@ -41,8 +50,11 @@ public class MovieClient
     public async Task<AlternativeTitles?> GetAlternativeTitles(int id, string? country = null)
     {
         var parameters = BaseRequests.FillBaseparameters(country: country);
-        return await BaseRequests.RequestAsync<AlternativeTitles?>($"movie/{id}/alternative_titles",
-            HttpMethod.Get, parameters);
+        return await BaseRequests.RequestAsync<AlternativeTitles?>(
+            $"movie/{id}/alternative_titles",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     /// <summary>
@@ -55,16 +67,33 @@ public class MovieClient
     /// <param name="end_date"></param>
     /// <param name="start_date"></param>
     /// <returns></returns>
-    public async Task<Changes?> GetChanges(int id, int page = 1, DateTime? end_date = null, DateTime? start_date = null)
+    public async Task<Changes?> GetChanges(
+        int id,
+        int page = 1,
+        DateTime? end_date = null,
+        DateTime? start_date = null
+    )
     {
-        var parameters = BaseRequests.FillBaseparameters(page: page, end_date: end_date, start_date: start_date);
-        return await BaseRequests.RequestAsync<Changes?>($"movie/{id}/changes", HttpMethod.Get, parameters);
+        var parameters = BaseRequests.FillBaseparameters(
+            page: page,
+            end_date: end_date,
+            start_date: start_date
+        );
+        return await BaseRequests.RequestAsync<Changes?>(
+            $"movie/{id}/changes",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     public async Task<Credits?> GetCredits(int id, string language = "en-US")
     {
         var parameters = BaseRequests.FillBaseparameters(language: language);
-        return await BaseRequests.RequestAsync<Credits?>($"movie/{id}/credits", HttpMethod.Get, parameters);
+        return await BaseRequests.RequestAsync<Credits?>(
+            $"movie/{id}/credits",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     /// <summary>
@@ -74,7 +103,10 @@ public class MovieClient
     /// <returns></returns>
     public async Task<ExternalIds?> GetExternalIds(int id)
     {
-        return await BaseRequests.RequestAsync<ExternalIds?>($"movie/{id}/external_ids", HttpMethod.Get);
+        return await BaseRequests.RequestAsync<ExternalIds?>(
+            $"movie/{id}/external_ids",
+            HttpMethod.Get
+        );
     }
 
     /// <summary>
@@ -85,11 +117,21 @@ public class MovieClient
     /// <param name="language"></param>
     /// <param name="include_image_language">specify a comma separated list of ISO-639-1 values to query, for example: en,null</param>
     /// <returns></returns>
-    public async Task<Images?> GetImages(int id, string? language = null, string? include_image_language = null)
+    public async Task<Images?> GetImages(
+        int id,
+        string? language = null,
+        string? include_image_language = null
+    )
     {
-        var parameters = BaseRequests.FillBaseparameters(language: language,
-            include_image_language: include_image_language);
-        return await BaseRequests.RequestAsync<Images>($"movie/{id}/images", HttpMethod.Get, parameters);
+        var parameters = BaseRequests.FillBaseparameters(
+            language: language,
+            include_image_language: include_image_language
+        );
+        return await BaseRequests.RequestAsync<Images>(
+            $"movie/{id}/images",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     public async Task<Keywords?> GetKeywords(int id)
@@ -114,17 +156,32 @@ public class MovieClient
     /// <param name="page"></param>
     /// <param name="language"></param>
     /// <returns></returns>
-    public async Task<BaseListRequest<Lists>?> GetLists(int id, int page = 1, string language = "en-US")
+    public async Task<BaseListRequest<Lists>?> GetLists(
+        int id,
+        int page = 1,
+        string language = "en-US"
+    )
     {
         var parameters = BaseRequests.FillBaseparameters(page: page, language: language);
-        return await BaseRequests.RequestAsync<BaseListRequest<Lists>>($"movie/{id}/lists", HttpMethod.Get, parameters);
+        return await BaseRequests.RequestAsync<BaseListRequest<Lists>>(
+            $"movie/{id}/lists",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
-    public async Task<BaseListRequest<Movie>?> GetRecomendations(int id, int page = 1, string language = "en-US")
+    public async Task<BaseListRequest<Movie>?> GetRecomendations(
+        int id,
+        int page = 1,
+        string language = "en-US"
+    )
     {
         var parameters = BaseRequests.FillBaseparameters(page: page, language: language);
-        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/recommendations", HttpMethod.Get,
-            parameters);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>(
+            $"movie/{id}/recommendations",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     /// <summary>
@@ -134,8 +191,10 @@ public class MovieClient
     /// <returns></returns>
     public async Task<BaseListRequest<ReleaseDates>?> GetReleaseDates(int id)
     {
-        return await BaseRequests.RequestAsync<BaseListRequest<ReleaseDates>>($"movie/{id}/release_dates",
-            HttpMethod.Get);
+        return await BaseRequests.RequestAsync<BaseListRequest<ReleaseDates>>(
+            $"movie/{id}/release_dates",
+            HttpMethod.Get
+        );
     }
 
     /// <summary>
@@ -145,11 +204,18 @@ public class MovieClient
     /// <param name="page"></param>
     /// <param name="language"></param>
     /// <returns></returns>
-    public async Task<BaseListRequest<Movie>?> GetReviews(int id, int page = 1, string language = "en-US")
+    public async Task<BaseListRequest<Movie>?> GetReviews(
+        int id,
+        int page = 1,
+        string language = "en-US"
+    )
     {
         var parameters = BaseRequests.FillBaseparameters(page: page, language: language);
-        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/reviews", HttpMethod.Get,
-            parameters);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>(
+            $"movie/{id}/reviews",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     /// <summary>
@@ -160,11 +226,18 @@ public class MovieClient
     /// <param name="page"></param>
     /// <param name="language"></param>
     /// <returns></returns>
-    public async Task<BaseListRequest<Movie>?> GetSimilar(int id, int page = 1, string language = "en-US")
+    public async Task<BaseListRequest<Movie>?> GetSimilar(
+        int id,
+        int page = 1,
+        string language = "en-US"
+    )
     {
         var parameters = BaseRequests.FillBaseparameters(page: page, language: language);
-        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/similar", HttpMethod.Get,
-            parameters);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>(
+            $"movie/{id}/similar",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     /// <summary>
@@ -174,14 +247,20 @@ public class MovieClient
     /// <returns></returns>
     public async Task<BaseListRequest<Movie>?> GetTranslations(int id)
     {
-        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/similar", HttpMethod.Get);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>(
+            $"movie/{id}/similar",
+            HttpMethod.Get
+        );
     }
 
     public async Task<BaseListRequest<Movie>?> GetVideos(int id, string language = "en-US")
     {
         var parameters = BaseRequests.FillBaseparameters(language: language);
-        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/videos", HttpMethod.Get,
-            parameters);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>(
+            $"movie/{id}/videos",
+            HttpMethod.Get,
+            parameters
+        );
     }
 
     /// <summary>
@@ -194,6 +273,9 @@ public class MovieClient
     /// <returns></returns>
     public async Task<BaseListRequest<Movie>?> GetWatchProviders(int id)
     {
-        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>($"movie/{id}/similar", HttpMethod.Get);
+        return await BaseRequests.RequestAsync<BaseListRequest<Movie>>(
+            $"movie/{id}/similar",
+            HttpMethod.Get
+        );
     }
 }

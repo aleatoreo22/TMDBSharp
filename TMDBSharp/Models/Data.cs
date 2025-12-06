@@ -2,10 +2,10 @@ using System.Text.Json.Serialization;
 
 namespace TMDBSharp.Models;
 
-public class Keyword
+public class Data
 {
-    [JsonPropertyName("id")]
-    public int? Id { get; set; }
+    [JsonPropertyName("biography")]
+    public string? Biography { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
