@@ -48,4 +48,14 @@ public class Client
             return peopleList;
         }
     }
+
+    private Requests.TvSeriesClient? tvSeries = null;
+    public Requests.TvSeriesClient TvSeries
+    {
+        get
+        {
+            tvSeries ??= new Requests.TvSeriesClient();
+            return tvSeries;
+        }
+    }
 }
